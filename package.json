@@ -6,9 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RamonMaximiliano/Jobs-Calc-Discovery.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RamonMaximiliano/Jobs-Calc-Discovery/issues"
+  },
+  "homepage": "https://github.com/RamonMaximiliano/Jobs-Calc-Discovery#readme",
   "dependencies": {
     "express": "^4.17.1"
   }
