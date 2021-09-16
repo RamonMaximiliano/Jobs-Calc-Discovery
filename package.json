@@ -2,7 +2,7 @@
   "name": "Jobs-Calc-Discovery",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "maratona-discover-02-1.0.0/src/server.js",
   "scripts": {
     "dev": "nodemon ."
   },
