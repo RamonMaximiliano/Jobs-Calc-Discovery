@@ -17,11 +17,22 @@ routes.get("/job", (req, res) => res.sendFile(basePath + "/job.html"))
 routes.get("/job/edit", (req, res) => res.sendFile(basePath + "/job-edit.html"))
 routes.get("/profile", (req, res) => res.sendFile(basePath + "/profile.html"))*/
 
+
+//criou um objeto, que sera enviado pro motor do ejs e então injetado no HTML
+const profile = {
+    name: "Ramon",
+    avatar: "https://avatars.githubusercontent.com/u/55163563?v=4",
+    "monthly-budget": 3000,
+    "days-per-week": 5,
+    "hours-per-day": 5,
+    "vacation-per-year": 4
+}
+
 //rotas abaixo após renderizar adicionado o ejs
 routes.get("/", (req, res) => res.render(views + "index"))
 routes.get("/job", (req, res) => res.render(views + "job"))
 routes.get("/job/edit", (req, res) => res.render(views + "job-edit"))
-routes.get("/profile", (req, res) => res.render(views + "profile"))
+routes.get("/profile", (req, res) => res.render(views + "profile", {profile: profile}))
 
 
 module.exports = routes;
