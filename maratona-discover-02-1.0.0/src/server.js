@@ -9,6 +9,11 @@ server.set("view engine", "ejs")
 //habilitar arquivos statics, criando rotas automaticas e configurações no servidor com o método user abaixo:
 //server.use(express.static('public'));
 server.use(express.static(__dirname + '/public'));
+
+// usar o req.body
+server.use(express.urlencoded({extended: true}))
+
+
 /*
 Depois de criar o arquivo routes.js o código abaixo vou cortado e colado lá no outro
 //request, response

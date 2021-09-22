@@ -75,12 +75,12 @@
                   value="<%= profile["monthly-budget"] %> " />
               </div>
                   <!-- se colocar o value assim ali acima, não funciona por causa do traço "-" profile.monthly-budge--> 
-
+                <!-- tive que mudar o type dos elementos abaioxo de number para amount pois não estava puxando os valores na interface--> 
               <div class="input-wrapper">
                 <label for="hours-per-day">Quantas horas <br/>
                   quero trabalhar por dia?</label>
                 <input 
-                  type="number"
+                  type="amount"
                   id="hours-per-day" 
                   name="hours-per-day"
                   value="<%= profile["hours-per-day"] %> " />
@@ -92,7 +92,7 @@
                 <label for="days-per-week">Quantos dias <br/>quero
                   trabalhar por semana?</label>
                 <input
-                  type="number"
+                  type="amount"
                   id="days-per-week" 
                   name="days-per-week" 
                   value="<%= profile["days-per-week"] %> " />
@@ -102,7 +102,7 @@
                 <label for="vacation-per-year">Quantas semanas <br/>
                   por ano você quer tirar férias?</label>
                 <input 
-                  type="number" 
+                  type="amount" 
                   id="vacation-per-year" 
                   name="vacation-per-year"
                   value="<%= profile["vacation-per-year"] %> " 

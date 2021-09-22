@@ -28,9 +28,19 @@ const profile = {
     "vacation-per-year": 4
 }
 
+//variavel criada para captar o objeto job { name: 'Test', 'daily-hours': '10', 'total-hours': '100' }
+const jobs = [] 
+
 //rotas abaixo após renderizar adicionado o ejs
 routes.get("/", (req, res) => res.render(views + "index"))
 routes.get("/job", (req, res) => res.render(views + "job"))
+routes.post("/job", (req, res) => {
+    //variavel criada para captar o objeto job { name: 'Test', 'daily-hours': '10', 'total-hours': '100' }
+    jobs.push(red.body)
+    //após adicionar o job ele redirecionará para pagina principal, por conta do '/'
+    return res.redirect('/')
+})
+
 routes.get("/job/edit", (req, res) => res.render(views + "job-edit"))
 routes.get("/profile", (req, res) => res.render(views + "profile", {profile: profile}))
 
