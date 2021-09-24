@@ -24,7 +24,8 @@ const profile = {
     "monthly-budget": 3000,
     "days-per-week": 5,
     "hours-per-day": 5,
-    "vacation-per-year": 4
+    "vacation-per-year": 4,
+    "value-hour": 75
 }
 
 //variavel criada para captar o objeto job { name: 'Test', 'daily-hours': '10', 'total-hours': '100' }
@@ -45,8 +46,47 @@ const jobs = [
     }
 ] 
 
+
+function remainingDays(job){
+    //calculo de tempo restante para finalização do job
+    const remainingDays = (job["total-hours"] / job["daily-hours"]).toFixed()
+
+    const createDate = new Date(job.created_at)
+    const dueDay = createDate.getDate() + Number(remainingDays)
+    const dueDateInMs = createDate.setDate(dueDay)
+
+    const timeDiffInMs = dueDateInMs - Date.now()
+    // transformar milli em dias
+    const dayInMs = 1000 * 60 * 60 *24
+    const dayDiff = Math.floor(timeDiffInMs / dayInMs)
+    
+    //restam x dias 
+    return dayDiff
+}
+
 //rotas abaixo após renderizar adicionado o ejs
-routes.get("/", (req, res) => res.render(views + "index", { jobs }))
+routes.get("/", (req, res) => {
+    //ajustes no job
+    // calculo tempo restante
+
+    const updatedJobs = jobs.map((job) => {
+
+        const remaining = remainingDays(job)
+        const status = remaining <= 0 ? 'done' : 'progress'
+        return {
+            ...job,
+            remaining,
+            status,
+            budget: profile["value-hour"] * job["total-hours"]
+        }
+    })
+
+    return res.render(views + "index", { jobs: updatedJobs })
+})
+
+
+
+
 routes.get("/job", (req, res) => res.render(views + "job"))
 routes.post("/job", (req, res) => {
     //variavel criada para captar o objeto job { name: 'Test', 'daily-hours': '10', 'total-hours': '100' }
