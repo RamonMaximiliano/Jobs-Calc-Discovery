@@ -98,7 +98,7 @@ const Job = {
             //variavel criada para captar o objeto job { name: 'Test', 'daily-hours': '10', 'total-hours': '100' }
             //ela busca no array jobs acima, o item de last id, caso não tenha nenhum dai coloca o 1 
             //const lastId = jobs[jobs.length - 1]?.id || 1; com o ponto de interrogação ali não esta funcionando,verificar o porque
-            const lastId = Job.data[Job.data.length - 1]?.id || 0;
+            const lastId = Job.data[Job.data.length - 1].id || 0;
 
             Job.data.push({
                 id: lastId + 1,
