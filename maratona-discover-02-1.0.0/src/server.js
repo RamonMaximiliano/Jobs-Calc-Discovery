@@ -2,9 +2,14 @@ const express = require("express")
 const server = express()
 const routes = require("./routes")
 ////o require acima esta pegando o routes que foi exportado no arquivo routes.js
+const path = require("path") 
 
 //usando template engine
 server.set("view engine", "ejs")
+
+
+//mudando localização da pasta views
+server.set('views', path.join(__dirname, 'views'))
 
 //habilitar arquivos statics, criando rotas automaticas e configurações no servidor com o método user abaixo:
 //server.use(express.static('public'));
