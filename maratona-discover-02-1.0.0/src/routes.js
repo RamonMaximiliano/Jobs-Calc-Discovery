@@ -2,6 +2,7 @@ const express = require("express");
 const routes = express.Router()
 const ProfileController = require('./controllers/ProfileController')
 const JobController = require('./controllers/JobController')
+const DashboardController = require('./controllers/DashboardController')
 
 /*
 //req, res
@@ -20,7 +21,7 @@ routes.get("/job/edit", (req, res) => res.sendFile(basePath + "/job-edit.html"))
 routes.get("/profile", (req, res) => res.sendFile(basePath + "/profile.html"))*/
 
 //rotas abaixo após renderizar adicionado o ejs
-routes.get("/", JobController.index)
+routes.get("/", DashboardController.index)
 routes.get("/job", JobController.create)
 routes.post("/job", JobController.save)
 routes.get("/job/:id", JobController.show)

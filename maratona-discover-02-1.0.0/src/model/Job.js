@@ -1,3 +1,5 @@
+const JobController = require("../controllers/JobController");
+
 //variavel criada para captar o objeto job { name: 'Test', 'daily-hours': '10', 'total-hours': '100' }
 let data = [
     {
@@ -19,5 +21,11 @@ let data = [
 module.exports = {
     get(){
         return data
+    },
+    update(newJob){
+        data = newJob
+    },
+    delete(id){
+        data = data.filter(job => Number(job.id) != Number(id))
     }
 }
