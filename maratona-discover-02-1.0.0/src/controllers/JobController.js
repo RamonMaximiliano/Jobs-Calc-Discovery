@@ -14,13 +14,13 @@ module.exports =  {
         const jobs = Job.get()
         const lastId = jobs[jobs.length - 1].id || 0;
 
-        jobs.push({
+        Job.create({
             id: lastId + 1,
             name: req.body.name,
             "daily-hours": req.body["daily-hours"],
             "total-hours": req.body["total-hours"],
             created_at: Date.now() // atribuindo data de hoje
-        })
+        });
 
         //após adicionar o job ele redirecionará para pagina principal, por conta do '/' 
         return res.redirect('/')
