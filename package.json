@@ -4,7 +4,8 @@
   "description": "",
   "main": "maratona-discover-02-1.0.0/src/server.js",
   "scripts": {
-    "dev": "nodemon ."
+    "dev": "nodemon .",
+    "init-db": "node maratona-discover-02-1.0.0/src/db/init.js"
   },
   "repository": {
     "type": "git",
