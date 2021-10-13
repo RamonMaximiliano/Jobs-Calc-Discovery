@@ -24,7 +24,7 @@ name TEXT,
 daily_hours INT,
 total_hours INT,
 created_at DATETIME
-)`)
+);`)
 
 await db.run(`
     INSERT INTO profile (
@@ -34,14 +34,16 @@ await db.run(`
         days_per_week,
         hours_per_day,
         vacation_per_year
+        value_hour
         ) VALUES (
             "Ramon",
             "https://avatars.githubusercontent.com/u/55163563?v=4",
             3000,
             5,
             5,
-            4
-         )`)
+            4,
+            70
+         );`)
 
 await db.run(`
 INSERT INTO jobs (
@@ -54,7 +56,7 @@ INSERT INTO jobs (
         2,
         1,
         1617514376018
-    )`)
+    );`)
 
 await db.run(`
    INSERT INTO jobs (
@@ -67,7 +69,7 @@ await db.run(`
             3,
             47,
             1617514376018
-        )`)
+        );`)
 
 await db.close()
 }

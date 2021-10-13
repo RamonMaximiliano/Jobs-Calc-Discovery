@@ -12,7 +12,7 @@ module.exports =  {
         //ela busca no array jobs acima, o item de last id, caso não tenha nenhum dai coloca o 1 
         //const lastId = jobs[jobs.length - 1]?.id || 1; com o ponto de interrogação ali não esta funcionando,verificar o porque
         const jobs = Job.get()
-        const lastId = jobs[jobs.length - 1].id || 0;
+        const lastId = jobs[jobs.length - 1]?.id || 0;
 
         Job.create({
             id: lastId + 1,

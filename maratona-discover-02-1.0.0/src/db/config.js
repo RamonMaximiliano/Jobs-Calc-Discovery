@@ -4,6 +4,9 @@ const { open } = require('sqlite')
 
 
 module.exports = () => open({
-    filename: './database.sqlite',
+    filename: 'maratona-discover-02-1.0.0/src/database.sqlite',
     driver: sqlite3.Database,
 });
+
+
+
